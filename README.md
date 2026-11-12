@@ -1,6 +1,6 @@
 # Circadian Rhythm Analysis Using R
 
-This R Markdown document provides a workflow for analyzing circadian rhythms based on the expression levels of biological variables associated with circadian regulation. The analysis is performed using the R package *circacompare*, developed by Rex Parsons (1). It is designed to characterize circadian patterns and estimate key parameters describing the rhythmic profiles of the biological variables under investigation.
+This R Markdown document provides a workflow for analyzing circadian rhythms based on the expression levels of biological variables associated with circadian regulation. The analysis is performed using the R package *circacompare*, developed by Rex Parsons<sup>1</sup>. It is designed to characterize circadian patterns and estimate key parameters describing the rhythmic profiles of the biological variables under investigation.
 
 ## Requirements
 
@@ -11,7 +11,7 @@ To run this analysis, you will need:
 - A data table in **.xlsx** format;
 - The following R packages installed: `circacompare`, `ggplot2`, `readxl`, and `here`.
 
-If you have no prior experience with R, consider starting with XXXX (introductory resource).
+If you have no prior experience with R, consider starting [here](https://rpubs.com/Wylliam_alves/1386150).
 
 Please note that this tutorial does not cover the installation or configuration of R, RStudio, or the required packages.
 
@@ -57,11 +57,11 @@ Replace `example.xlsx` with the name of your Excel file. Make sure that the work
 Locate the following code chunk:
 
 ```r
-gene <- "mv1"
+mv <- "mv1"
 
 cat(
   "Gene to be analyzed: ",
-  gene,
+  mv,
   ".\n"
 )
 ```
@@ -76,4 +76,5 @@ Once you have specified the input file and the variable of interest, click **Kni
 
 The analysis workflow will generate a report in HTML or PDF format, depending on the output format configured in the R Markdown document.
 
-An example of the resulting report is shown below.
+### 4. Reference
+1. Rex Parsons, Richard Parsons, Nicholas Garner, Henrik Oster, Oliver Rawashdeh, CircaCompare: a method to estimate and statistically support differences in mesor, amplitude and phase, between circadian rhythms, *Bioinformatics*, Volume 36, Issue 4, February 2020, Pages 1208–1212, <https://doi.org/10.1093/bioinformatics/btz730>
