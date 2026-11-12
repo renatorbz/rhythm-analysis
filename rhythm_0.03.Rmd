@@ -1,0 +1,144 @@
+---
+title: "Rhythm Report (Circa compare)"
+date: "`r Sys.Date()`"
+output:
+  html_document: 
+    toc: true
+  pdf_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#### Circadian rhythm analysis using the R package circacompare, created by Rex Parsons[1].
+
+This report presents the results of a circadian rhythm analysis based on the expression of mvs associated with circadian rhythms, using the R package *circacompare*, developed by Rex Parsons(1). The analysis is used to characterize circadian patterns in mv expression data and to estimate key parameters describing the rhythmic profile of the mvs under investigation.
+
+================================================================================
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+# Cleaning previously objects from the current workspace
+rm(list = ls())
+#ls() 
+# Loaging the necessary libraries
+library(circacompare)
+library(ggplot2)
+library(readxl)
+library(here)
+
+# File path. Read the README file for further instructions.
+
+df <- read_excel(
+  "data/template.xlsx", sheet="spreadsheet",
+  .name_repair = "minimal"
+)
+
+df <- df[, !grepl("^\\.\\.\\.", names(df))]
+```
+
+##### 1. Specifying the mv of interest
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+# Entering the mv of interest.
+
+mv <- "mv1"
+cat(
+ "Variable to be analyzed: ",
+  mv,
+  ".\n"
+)
+```
+
+
+##### 2. Data Preparation and Removal of Missing or Invalid Values
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+df$time <- suppressWarnings(
+  as.numeric(df$time)
+)
+
+df[[mv]] <- suppressWarnings(
+  as.numeric(df[[mv]])
+)
+
+df$group <- as.factor(df$group)
+
+cat("Summary of missing values:\n")
+
+cat(
+  "Time:",
+  sum(is.na(df$time)),
+  "NA. | Group:",
+  sum(is.na(df$group)),
+  "NA | ", mv, ":",
+  sum(is.na(df[[mv]])),
+  "NA\n"
+)
+
+# Data Cleaning and Removal of Missing Values (NA)  
+
+dados_limpos <- df[
+  complete.cases(
+    df[, c("time", "group", mv)]
+  ),
+]
+
+linhas_removidas <- nrow(df) - nrow(dados_limpos)
+
+cat(
+  linhas_removidas,
+  "lines were removed.\n"
+)
+
+cat(
+  "Total of valid observations:",
+  nrow(dados_limpos),
+  "\n\n"
+)
+
+# Checking if there is sufficient data
+if(nrow(dados_limpos) == 0){
+  
+  stop(
+    "All data was removed after the cleanup."
+  )
+  
+}
+
+```
+
+
+##### 3. Results
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+
+# Circacompare analysis
+result <- circacompare(
+  x = dados_limpos,
+  col_time = "time",
+  col_group = "group",
+  col_outcome = mv,
+  alpha_threshold = 1
+)
+options(width = 60)
+
+cat("Nonlinear regression model: \n")
+summary(result$fit)
+
+cat("Summary of results: \n")
+print(result$summary)
+print(result$alpha)
+
+cat("Graph: \n")
+print(result$plot)
+```
+
+
+##### 4. Reference
+1. Rex Parsons, Richard Parsons, Nicholas Garner, Henrik Oster, Oliver Rawashdeh, CircaCompare: a method to estimate and statistically support differences in mesor, amplitude and phase, between circadian rhythms, *Bioinformatics*, Volume 36, Issue 4, February 2020, Pages 1208–1212, <https://doi.org/10.1093/bioinformatics/btz730>
+
+
+***Notes:*** *For instructions on how to use the code, as well as information on citation and licensing, please refer to the README file.*
+
+
+
