@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the specific version archived in Zenodo."
+type: software
+title: "Circadian Rhythm Analysis Using R"
+authors:
+  - family-names: "Barboza"
+    given-names: "Renato"
+    orcid: "https://orcid.org/0000-0002-6441-7513"
+  - family-names: "Moraes"
+    given-names: "Maria Nathalia"
+    orcid: "https://orcid.org/0000-0003-2479-4477"
+version: "0.2.0"
+date-released: "2026-11-16"
+license: "MIT"
+repository-code: "https://github.com/renatorbz/rhythm-analysis"
+url: "https://github.com/renatorbz/rhythm-analysis"
+keywords:
+  - circadian rhythm
+  - gene expression
+  - biological rhythms
+  - R
+  - R Markdown
+  - circacompare
+abstract: >
+  An R Markdown-based workflow for circadian rhythm analysis using the
+  circacompare R package. The software supports the analysis of measured
+  variables associated with circadian rhythms, including gene expression,
+  and the generation of statistical reports and graphical representations.
