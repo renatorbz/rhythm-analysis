@@ -76,5 +76,29 @@ Once you have specified the input file and the variable of interest, click **Kni
 
 The analysis workflow will generate a report in HTML or PDF format, depending on the output format configured in the R Markdown document.
 
-### 4. Reference
+### 4. How to cite
+
+If you use this software in a scientific publication, presentation, or other research output, please cite the specific version archived in Zenodo.
+
+Suggested citation:
+
+Barboza, R., & Moraes, M. N. (YEAR). *Circadian Rhythm Analysis Using R* (Version VERSION) [Computer software]. Zenodo. https://doi.org/DOI
+
+Replace YEAR, VERSION, and DOI with the information assigned to the corresponding Zenodo release.
+
+The `CITATION.cff` file provides machine-readable citation metadata and allows GitHub to display the repository citation information.
+
+
+### 5. Reference
 1. Rex Parsons, Richard Parsons, Nicholas Garner, Henrik Oster, Oliver Rawashdeh, CircaCompare: a method to estimate and statistically support differences in mesor, amplitude and phase, between circadian rhythms, *Bioinformatics*, Volume 36, Issue 4, February 2020, Pages 1208–1212, <https://doi.org/10.1093/bioinformatics/btz730>
+
+### License
+
+This project is intended to be distributed under the MIT License.
+See the `LICENSE` file for the complete license terms.
+The license applies to the original material provided in this repository. Third-party software and packages remain subject to their respective licenses.
+
+### Disclaimer
+
+This software is provided for research and educational purposes.
+Users are responsible for checking their data, verifying model assumptions, and interpreting the results appropriately.
