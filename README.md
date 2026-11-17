@@ -6,7 +6,7 @@ This R Markdown document provides a workflow for analyzing circadian rhythms bas
 
 To run this analysis, you will need:
 
-- **R** (R version 4.5.2 (2025-10-31 ucrt);
+- **R** (R version 4.5.2 - 2025-10-31 ucrt);
 - **RStudio** (2026.11.0 Build 203);
 - A data table in **.xlsx** format;
 - The following R packages installed: `circacompare`, `ggplot2`, `readxl`, and `here`.
