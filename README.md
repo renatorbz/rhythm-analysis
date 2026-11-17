@@ -6,8 +6,8 @@ This R Markdown document provides a workflow for analyzing circadian rhythms bas
 
 To run this analysis, you will need:
 
-- **R**;
-- **RStudio**;
+- **R** (R version 4.5.2 (2025-10-31 ucrt);
+- **RStudio** (2026.11.0 Build 203);
 - A data table in **.xlsx** format;
 - The following R packages installed: `circacompare`, `ggplot2`, `readxl`, and `here`.
 
@@ -27,15 +27,9 @@ The data table must not contain empty cells. If a measurement is missing, enter 
 
 Each row must represent the measurements obtained for a given experimental group at a specific sampling time.
 
-See Figure 1 for an example of the required data structure.
-
-*Figure 1. Example of the data table structure.*
-
 ## Running the circadian rhythm analysis
 
-Before running the analysis, make sure that the R Markdown document *rhythm_0.02.Rmd* is saved in a directory of your choice. Within this directory, create a subdirectory named `data` and save your Excel data file there, as illustrated in Figure 2.
-
-*Figure 2. Recommended directory structure.*
+Before running the analysis, make sure that the R Markdown document *rhythm_0.03.Rmd* is saved in a directory of your choice. Within this directory, create a subdirectory named `data` and save your Excel data file there.
 
 In RStudio, open the file *rhythm_0.02.Rmd*.
 
@@ -68,7 +62,7 @@ cat(
 
 Replace `mv1` with the name of the variable you wish to analyze, exactly as it appears in the corresponding column header of your data table.
 
-Although the current code uses the object name `gene`, the analysis can be applied to any measured biological variable included in your dataset, provided that the data are suitable for circadian rhythm analysis.
+Although the current code uses the object name `mv`, the analysis can be applied to any measured biological variable included in your dataset, provided that the data are suitable for circadian rhythm analysis.
 
 ### 3. Generate the analysis report
 
@@ -83,8 +77,6 @@ If you use this software in a scientific publication, presentation, or other res
 Suggested citation:
 
 Barboza, R., & Moraes, M. N. (YEAR). *Circadian Rhythm Analysis Using R* (Version VERSION) [Computer software]. Zenodo. https://doi.org/DOI
-
-Replace YEAR, VERSION, and DOI with the information assigned to the corresponding Zenodo release.
 
 The `CITATION.cff` file provides machine-readable citation metadata and allows GitHub to display the repository citation information.
 
